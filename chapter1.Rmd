@@ -1,4 +1,21 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 
 # About the project
 
-*Write a short description about the course and add a link to your github repository here. This is an R markdown (.Rmd) file so you can use R markdown syntax. See the 'Useful links' page in the mooc area (chapter 1) for instructions.*
+Odotan innolla kurssia! `r sum(c(8,7,9)) ` Jee  
+Uusi rivi.
+
+## Header 2
+
+```{r eval=TRUE}
+sum(c(8,7,10))
+```
+moi
+*tahti*  
+**tahtia**
+
+[Linkkini](https://github.com/jone8/IODS-project)

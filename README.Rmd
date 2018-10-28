@@ -1,0 +1,8 @@
+---
+title: "IODS-juttuja"
+output: html_document
+---
+
+Kurssi alkaa kohta.
+[Linkki kurssipaivakirjaani](https://jone8.github.io/IODS-project/)
+
