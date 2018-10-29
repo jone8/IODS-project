@@ -14,9 +14,7 @@ Uusi rivi.
 ```{r eval=TRUE}
 sum(c(8,7,10))
 ```
-muokkasin vahan  
-hei  
-moi
+
 *tahti*  
 **tahtia**
 
