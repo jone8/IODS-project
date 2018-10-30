@@ -6,14 +6,15 @@ output:
 
 # About the project
 
-Odotan innolla kurssia! `r sum(c(8,7,9)) ` Jee  
+Odotan innolla kurssia! `r sum(c(8,7,9)) `   
 Uusi rivi.
 
 ## Header 2
 
-```{r eval=TRUE}
-sum(c(8,7,10))
+```{r}
+sum(8,9,7)
 ```
+
 
 *tahti*  
 **tahtia**
