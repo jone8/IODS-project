@@ -9,7 +9,7 @@ output:
 Odotan innolla kurssia! `r sum(c(8,7,9)) `   
 Uusi rivi.
 
-ei-jee
+ei-jeee
 
 
 ## Header 2
