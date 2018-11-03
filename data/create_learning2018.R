@@ -8,7 +8,7 @@ dim(lrn2014)
 
 
   
-install.packages("dplyr")
+#install.packages("dplyr")
 library(dplyr)
 
 deep_questions <- c("D03", "D11", "D19", "D27", "D07", "D14", "D22", "D30","D06",  "D15", "D23", "D31")
