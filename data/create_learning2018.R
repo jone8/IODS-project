@@ -6,10 +6,13 @@ lrn2014<- read.table("http://www.helsinki.fi/~kvehkala/JYTmooc/JYTOPKYS3-data.tx
 str(lrn2014)
 dim(lrn2014)
 
-
+getOption("repos")
   
 #install.packages("dplyr")
 library(dplyr)
+
+find.package("devtools")
+
 
 deep_questions <- c("D03", "D11", "D19", "D27", "D07", "D14", "D22", "D30","D06",  "D15", "D23", "D31")
 surface_questions <- c("SU02","SU10","SU18","SU26", "SU05","SU13","SU21","SU29","SU08","SU16","SU24","SU32")
