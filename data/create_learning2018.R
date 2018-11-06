@@ -6,26 +6,28 @@ lrn2014<- read.table("http://www.helsinki.fi/~kvehkala/JYTmooc/JYTOPKYS3-data.tx
 str(lrn2014)
 dim(lrn2014)
 
-getOption("repos")
+#getOption("repos")
   
 #install.packages("dplyr")
 library(dplyr)
 
-find.package("devtools")
+#find.package("devtools")
 
 
 deep_questions <- c("D03", "D11", "D19", "D27", "D07", "D14", "D22", "D30","D06",  "D15", "D23", "D31")
 surface_questions <- c("SU02","SU10","SU18","SU26", "SU05","SU13","SU21","SU29","SU08","SU16","SU24","SU32")
 strategic_questions <- c("ST01","ST09","ST17","ST25","ST04","ST12","ST20","ST28")
 
-deep_columns<- select(lrn2014, one_of(deep_questions))
+deep_columns<- select(lrn2014, deep_questions)
 lrn2014$deep <- rowMeans(deep_columns)
 
-surface_columns <- select(lrn2014, one_of(surface_questions))
+surface_columns <- select(lrn2014, surface_questions)
 lrn2014$surf <- rowMeans(surface_columns)
 
-strategic_columns <- select(lrn2014, one_of(strategic_questions))
+strategic_columns <- select(lrn2014, strategic_questions)
 lrn2014$stra <- rowMeans(strategic_columns)
+
+lrn2014$Attitude <- lrn2014$Attitude / 10
 
 analysis_lrn2014 <- select(lrn2014, gender, Age, Attitude, deep, stra, surf, 
                            Points)
@@ -44,9 +46,9 @@ str(analysis_lrn2014_teksti)
 
 analysis_lrn2014_csv<- read.csv("analysis_lrn2014_csv.csv")
 analysis_lrn2014_csv<- (analysis_lrn2014_csv)[2:8]
-dim(analysis_lrn2014_csv)
-str(analysis_lrn2014_csv)
-
+miedim<-dim(analysis_lrn2014_csv)
+miestr<-str(analysis_lrn2014_csv)
+miehead<-head(analysis_lrn2014_csv)
 
 #Na
 #select
