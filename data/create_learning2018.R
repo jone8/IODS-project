@@ -1,7 +1,12 @@
 # Johanna, pvm, dataa
 
+
+
 lrn2014<- read.table("http://www.helsinki.fi/~kvehkala/JYTmooc/JYTOPKYS3-data.txt",
-                     header=T, sep="\t")
+                     header=T)
+
+?read.table()
+
 
 str(lrn2014)
 dim(lrn2014)
@@ -27,13 +32,24 @@ lrn2014$surf <- rowMeans(surface_columns)
 strategic_columns <- select(lrn2014, strategic_questions)
 lrn2014$stra <- rowMeans(strategic_columns)
 
+
+keep<- c("gender", "Age", "Attitude")
+
+
+lrn2014[keep]
+
 lrn2014$Attitude <- lrn2014$Attitude / 10
+
+library(dplyr)
 
 analysis_lrn2014 <- select(lrn2014, gender, Age, Attitude, deep, stra, surf, 
                            Points)
 
+
+
 analysis_lrn2014<- filter (analysis_lrn2014, Points>0)
 
+#ab<- subset(analysis_lrn20142, Points>30)
 
 setwd("C:\\Users\\pingv\\Documents\\GitHub\\IODS-project\\data")
 
@@ -57,8 +73,10 @@ miehead<-head(analysis_lrn2014_csv)
 
 ?colnames
 
+#install.packages("ggplot2")
+#install.packages("GGally")
 
-
+?plot.lm
 #NA
 #dplyr
 
