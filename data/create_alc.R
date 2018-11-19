@@ -61,10 +61,11 @@ alc
 
 #6.
 alc_days<-select(alc, "Dalc", "Walc")
-
 alc$alc_use<- rowMeans(alc_days)
+#alc <- mutate(alc, alc_use2 = (Dalc + Walc)/2)
 
 alc$high_use<- alc$alc_use>2
+#alc <- mutate(alc, high_use2 = alc_use2 > 2)
 
 #7
 glimpse(alc)
@@ -72,3 +73,4 @@ glimpse(alc)
 getwd()
 write.csv2(alc, file="data/alc.csv", row.names = F)
 testi<-read.csv2("data/alc.csv")
+
