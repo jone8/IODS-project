@@ -83,7 +83,8 @@ class(lda.pred$class)
 
 7.
 ```{r}
-boston_data<-scale(Boston)
+
+boston_data<-as.data.frame(scale(Boston))
 
 dist_eu<-dist(boston_data)
 dist_man <- dist(boston_data, method="manhattan")
@@ -105,7 +106,6 @@ pairs(boston_data, col = km$cluster)
 library(GGally)
 ggpairs(boston_data, col= km$cluster)
 
-#ggpairs??
 ```
 
 ```{r}

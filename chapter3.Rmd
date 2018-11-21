@@ -20,6 +20,5 @@ library(ggplot2)
 g1 <- ggplot(alc, aes(x=high_use, y=famrel, col = sex))
 g1 + geom_boxplot() + ylab("Family relationships")+ xlab("High usage") + ggtitle("Family relationships vs high usage of alcohol")
 
-?ggplot
 ```
 
