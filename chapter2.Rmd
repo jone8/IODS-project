@@ -1,32 +1,22 @@
-wii
 
-# Insert chapter 2 title here
+# Regression and model validation
 
-*Describe the work you have done this week and summarize your learning.*
-
-- Describe your work and results clearly. 
-- Assume the reader has an introductory course level understanding of writing and reading R code as well as statistical methods
-- Assume the reader has no previous knowledge of your data or the more advanced methods you are using  
 
 ```{r data, echo=FALSE, include=FALSE}
 
 lrn14<- read.table("data/analysis_lrn2014_teksti.txt")
 
 ```
-```{r}
+```{r, echo=F}
 str(lrn14)
 dim(lrn14)
 
 summary(lrn14)
 ```
-
-```{r dims, echo=FALSE}
-dim(lrn14)
-str(lrn14)
-```
+There are 166 observations and 7 variables.
 
 
-```{r warning=FALSE}
+```{r warning=FALSE, include=F}
 library(ggplot2)
 library(GGally)
 ```
@@ -34,9 +24,13 @@ library(GGally)
 ```{r}
 summary(lm(Points~Attitude,data=lrn14))
 
-hei<-lm(Points~ Attitude, data=lrn14)
+```
+ 
+ 
+```{r}
+reg<-lm(Points~ Attitude, data=lrn14)
 
-plot(hei)
+plot(reg)
 
 
 
@@ -51,12 +45,12 @@ my_model <- lm(Points ~ Age+ Attitude+stra, data = lrn14)
 summary(my_model)
 ```
 
-# Jos vain 1 selittävä, intercept: mikäli attitude 0, niin pisteitä 11.
-# multiple r-squared: korkerroin
 
 ```{r}
 ggpairs(lrn14, mapping = aes(col = gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20)))
 ```
+
+We see that there is biggest correlation with points and attitude. 
 
 ```{r}
 plot(lm(Points~Attitude, data=lrn14), which = c(1,2,5), par(mfrow=c(2,2)) )

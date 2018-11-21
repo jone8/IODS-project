@@ -6,19 +6,7 @@ output:
 
 # About the project
 
-Odotan innolla kurssia! `r sum(c(8,7,9)) `   
-Uusi rivi.
+This course is going to start now!
 
-Mita
-
-## Header 2
-
-```{r}
-sum(8,9,7)
-```
-
-
-*tahti*  
-**tahtia**
 
 [Linkkini](https://github.com/jone8/IODS-project)

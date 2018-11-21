@@ -38,6 +38,7 @@ ind <- sample(n,  size = n * 0.8)
 train<-boston_scaled[ind,]
 test<- boston_scaled[-ind,]
 
+
 ```
 
 
@@ -105,5 +106,21 @@ library(GGally)
 ggpairs(boston_data, col= km$cluster)
 
 #ggpairs??
+```
+
+```{r}
+set.seed(777)
+library(MASS)
+bst <- as.data.frame(scale(Boston))
+km_5 <- kmeans(bst, centers = 5)
+lda.fit2 <- lda(km_5$cluster ~ ., data = bst)
+# target classes as numeric
+class <- as.numeric(km_5$cluster)
+# plot the lda results
+plot(lda.fit2, dimen = 2, col = class , pch = class)
+lda.arrows(lda.fit2, myscale = 1)
+```
+
+It seems rad is very influential.
 ```
 
