@@ -13,7 +13,7 @@ output:
   
   
 ---
-
+Kootaan kaikki.
 ***
   
 ```{r child = "chapter1.Rmd"}
