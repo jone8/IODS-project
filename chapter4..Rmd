@@ -12,13 +12,13 @@ head(Boston)
 ```
 
 3.
-```{r}
+```{r, echo=F}
 plot(Boston)
 summary(Boston)
 ```
 
 4.
-```{r}
+```{r, echo=F}
 boston_scaled<- scale(Boston)
 head(boston_scaled)
 summary(boston_scaled)
@@ -46,7 +46,6 @@ test<- boston_scaled[-ind,]
 ```{r}
 lda.fit<-lda(crime~., train)
 
-#tulkinta
 
 lda.arrows <- function(x, myscale = 1, arrow_heads = 0.1, color = "red", tex = 0.75, choices = c(1,2)){
   heads <- coef(x)
@@ -60,7 +59,7 @@ lda.arrows <- function(x, myscale = 1, arrow_heads = 0.1, color = "red", tex = 0
 classes <- as.numeric(train$crime)
 
 plot(lda.fit, dimen = 2, col=classes, pch=classes)
-#mit???
+
 lda.arrows(lda.fit, myscale = 1)
 
 ```
@@ -75,50 +74,5 @@ test<-dplyr::select(test, -crime)
 lda.pred <- predict(lda.fit, newdata = test)
 table(correct = correct_classes, predicted = lda.pred$class)
 
-class(correct_classes)
-class(lda.pred$class)
-
-
-```
-7.
-```{r}
-
-boston_data<-as.data.frame(scale(Boston))
-
-dist_eu<-dist(boston_data)
-dist_man <- dist(boston_data, method="manhattan")
-
-km <-kmeans(boston_data, centers = 4)
-
-set.seed(33)
-k_max <- 10
-
-twcss <- sapply(1:k_max, function(k){kmeans(Boston, k)$tot.withinss})
-
-library(ggplot2)
-qplot(x = 1:k_max, y = twcss, geom = "line")
-
-km <-kmeans(boston_data, centers = 2)
-
-pairs(boston_data, col = km$cluster)
-
-library(GGally)
-ggpairs(boston_data, col= km$cluster)
-
 ```
 
-```{r}
-set.seed(777)
-library(MASS)
-bst <- as.data.frame(scale(Boston))
-km_5 <- kmeans(bst, centers = 5)
-lda.fit2 <- lda(km_5$cluster ~ ., data = bst)
-# target classes as numeric
-class <- as.numeric(km_5$cluster)
-# plot the lda results
-plot(lda.fit2, dimen = 2, col = class , pch = class)
-lda.arrows(lda.fit2, myscale = 1)
-```
-
-It seems rad is very influential.
-```
