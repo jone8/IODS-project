@@ -7,6 +7,7 @@
 lrn14<- read.table("data/analysis_lrn2014_teksti.txt")
 
 ```
+
 ```{r, echo=F}
 str(lrn14)
 dim(lrn14)
@@ -51,10 +52,6 @@ ggpairs(lrn14, mapping = aes(col = gender, alpha = 0.3), lower = list(combo = wr
 ```
 
 We see that there is biggest correlation with points and attitude. 
-
-```{r}
-plot(lm(Points~Attitude, data=lrn14), which = c(1,2,5), par(mfrow=c(2,2)) )
-```
 
 ```{r}
 plot(lm(Points~Attitude, data=lrn14), which = c(1,2,5), par(mfrow=c(2,2)) )

@@ -76,3 +76,47 @@ table(correct = correct_classes, predicted = lda.pred$class)
 
 ```
 
+7.
+```{r}
+data(Boston)
+
+boston_data<-as.data.frame(scale(Boston))
+
+dist_eu<-dist(boston_data)
+dist_man <- dist(boston_data, method="manhattan")
+
+km <-kmeans(boston_data, centers = 4)
+
+set.seed(33)
+k_max <- 10
+
+twcss <- sapply(1:k_max, function(k){kmeans(Boston, k)$tot.withinss})
+
+library(ggplot2)
+qplot(x = 1:k_max, y = twcss, geom = "line")
+
+km <-kmeans(boston_data, centers = 2)
+
+pairs(boston_data, col = km$cluster)
+
+library(GGally)
+ggpairs(boston_data, col= km$cluster)
+
+```
+
+```{r}
+set.seed(777)
+library(MASS)
+bst <- as.data.frame(scale(Boston))
+km_5 <- kmeans(bst, centers = 5)
+lda.fit2 <- lda(km_5$cluster ~ ., data = bst)
+# target classes as numeric
+class <- as.numeric(km_5$cluster)
+# plot the lda results
+plot(lda.fit2, dimen = 2, col = class , pch = class)
+lda.arrows(lda.fit2, myscale = 1)
+```
+
+It seems rad is very influential.
+```
+
